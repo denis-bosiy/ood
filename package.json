@@ -1,0 +1,23 @@
+{
+  "name": "ood",
+  "version": "1.0.0",
+  "description": "Задания по курсу объектно-ориентированного проектирование в Волгатехе",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denis-bosiy/ood.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/denis-bosiy/ood/issues"
+  },
+  "homepage": "https://github.com/denis-bosiy/ood#readme"
+}
