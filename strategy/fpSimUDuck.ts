@@ -7,7 +7,7 @@ const makeCountableFlyWithWings = (): () => void => {
 
     const countableFlyWithWings = (): void => {
         departuresCount++;
-        console.log("I'm flying with wings!!", "Departures count = ", departuresCount);
+        console.log("I'm flying with wings!!", "Departures count =", departuresCount);
     }
 
     return countableFlyWithWings;

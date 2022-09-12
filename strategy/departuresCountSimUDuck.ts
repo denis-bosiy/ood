@@ -12,7 +12,7 @@ class FlyWithWings implements IFlyBehavior {
     public fly(): void {
         this.departuresCount++;
         console.log("I'm flying with wings!!");
-        console.log("Departures counts = ", this.departuresCount);
+        console.log("Departures counts =", this.departuresCount);
     }
 };
 
