@@ -2,6 +2,17 @@ export { };
 
 // FlyBehavior
 
+const makeCountableFlyWithWings = (): () => void => {
+    let departuresCount: number = 0;
+
+    const countableFlyWithWings = (): void => {
+        departuresCount++;
+        console.log("I'm flying with wings!!", "Departures count = ", departuresCount);
+    }
+
+    return countableFlyWithWings;
+}
+
 const flyWithWings = (): void => {
     console.log("I'm flying with wings!!");
 };
@@ -75,7 +86,7 @@ class Duck {
 
 class MallardDuck extends Duck {
     constructor() {
-        super(flyWithWings, makeDefaultQuack, makeWaltzDance);
+        super(makeCountableFlyWithWings(), makeDefaultQuack, makeWaltzDance);
     }
 
     public display(): void {
@@ -85,7 +96,7 @@ class MallardDuck extends Duck {
 
 class RedheadDuck extends Duck {
     constructor() {
-        super(flyWithWings, makeDefaultQuack, makeMinuetDance);
+        super(makeCountableFlyWithWings(), makeDefaultQuack, makeMinuetDance);
     }
     public display(): void {
         console.log("I'm redhead duck")
@@ -139,6 +150,10 @@ function playWithDuck(duck: Duck): void {
 // Основной код выполнения
 
 const mallardDuck = new MallardDuck();
+playWithDuck(mallardDuck);
+playWithDuck(mallardDuck);
+mallardDuck.setFlyBehavior(makeCountableFlyWithWings());
+console.log("Changed behavior\n");
 playWithDuck(mallardDuck);
 
 const redheadDuck = new RedheadDuck();
