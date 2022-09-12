@@ -1,4 +1,4 @@
-export {};
+export { };
 
 // FlyBehavior 
 
@@ -84,15 +84,21 @@ class Duck {
   }
   public setQuackBehavior(quackBehavior: IQuackBehavior): void {
     console.assert(!!quackBehavior);
-    this.m_quackBehavior = quackBehavior;
+    if (!!quackBehavior) {
+      this.m_quackBehavior = quackBehavior;
+    }
   }
   public setFlyBehavior(flyBehavior: IFlyBehavior): void {
     console.assert(!!flyBehavior);
-    this.m_flyBehavior = flyBehavior;
+    if (!!flyBehavior) {
+      this.m_flyBehavior = flyBehavior;
+    }
   }
   public setDanceBehavior(danceBehavior: IDanceBehavior): void {
     console.assert(!!danceBehavior);
-    this.m_danceBehavior = danceBehavior;
+    if (!!danceBehavior) {
+      this.m_danceBehavior = danceBehavior;
+    }
   }
   public display(): void { }
 

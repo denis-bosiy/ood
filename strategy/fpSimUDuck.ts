@@ -2,9 +2,7 @@ export { };
 
 // FlyBehavior
 
-const makeCountableFlyWithWings = (): () => void => {
-    let departuresCount: number = 0;
-
+const makeCountableFlyWithWings = (departuresCount: number = 0): () => void => {
     const countableFlyWithWings = (): void => {
         departuresCount++;
         console.log("I'm flying with wings!!", "Departures count =", departuresCount);
@@ -29,7 +27,7 @@ const makeSqueak = (): void => {
     console.log("Squeek!!!");
 }
 
-const makeMutedQuack = (): void => {};
+const makeMutedQuack = (): void => { };
 
 // DanceBehavior
 
@@ -41,7 +39,7 @@ const makeMinuetDance = (): void => {
     console.log("I'm dancing minuet");
 }
 
-const makeNoDance = (): void => {}
+const makeNoDance = (): void => { }
 
 // Duck
 
@@ -67,15 +65,21 @@ class Duck {
     }
     public setQuackBehavior(quackBehavior: () => void): void {
         console.assert(!!quackBehavior);
-        this.m_quackBehavior = quackBehavior;
+        if (!!quackBehavior) {
+            this.m_quackBehavior = quackBehavior;
+        }
     }
     public setFlyBehavior(flyBehavior: () => void): void {
         console.assert(!!flyBehavior);
-        this.m_flyBehavior = flyBehavior;
+        if (!!flyBehavior) {
+            this.m_flyBehavior = flyBehavior;
+        }
     }
     public setDanceBehavior(danceBehavior: () => void): void {
         console.assert(!!danceBehavior);
-        this.m_danceBehavior = danceBehavior;
+        if (!!danceBehavior) {
+            this.m_danceBehavior = danceBehavior;
+        }
     }
     public display(): void { }
 
