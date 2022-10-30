@@ -1,0 +1,6 @@
+paint
+ellipse 10 20 20 20 black
+string
+stop
+save
+exit

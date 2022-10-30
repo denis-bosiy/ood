@@ -1,7 +1,7 @@
 import { CCross } from "./Figure/CCross";
 import { CFigure, Color } from "./Figure/CFigure";
 import { CPoint } from "./Figure/CPoint";
-import { CLayout } from "./layout";
+import { CLayout } from "./Clayout";
 
 describe("test layout", () => {
     test("adding one figure to layout should increment figures array's length", () => {

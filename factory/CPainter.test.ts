@@ -1,11 +1,11 @@
-import { CPainter } from "./painter";
-import { CLayout } from "./layout";
+import { CPainter } from "./CPainter";
+import { CLayout } from "./CLayout";
 import { CFigure, Color } from "./Figure/CFigure";
 import { ICanvas } from "./Canvas/ICanvas";
 import { CCanvas } from "./Canvas/CCanvas";
 
 class CMockFigure extends CFigure {
-    constructor(color: Color){
+    constructor(color: Color) {
         super(color);
     }
 
@@ -13,15 +13,16 @@ class CMockFigure extends CFigure {
         console.log(this.m_color);
     }
 }
+
 describe("test painter", () => {
     const log = console.log;
-  
+
     beforeEach(() => {
-      console.log = jest.fn();
+        console.log = jest.fn();
     });
-  
+
     afterAll(() => {
-      console.log = log;
+        console.log = log;
     });
 
     test("painter should invoke draw method at every figure", () => {

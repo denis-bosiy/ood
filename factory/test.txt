@@ -1,0 +1,9 @@
+paint
+cross 100 100 30 yellow
+cross 900 100 30 yellow
+rectangle 250 100 500 30 yellow
+triangle 400 250 600 250 500 350 yellow
+ellipse 500 500 300 50 red
+stop
+save
+exit

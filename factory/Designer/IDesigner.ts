@@ -1,6 +1,6 @@
-import { readline } from "../libs";
-import { CLayout } from "../layout";
+import { CLayout } from "../CLayout";
+import LineByLineReader from "line-by-line";
 
 export interface IDesigner {
-    getLayout(stream: readline.Interface): Promise<CLayout>;
+    getLayout(stream: LineByLineReader): Promise<CLayout>;
 }

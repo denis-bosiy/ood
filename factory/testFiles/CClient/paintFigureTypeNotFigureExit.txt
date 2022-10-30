@@ -1,0 +1,5 @@
+paint
+ellipse 10 20 20 20 red
+string
+stop
+exit

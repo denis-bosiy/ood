@@ -1,6 +1,6 @@
 import { ICanvas } from "./Canvas/ICanvas";
 import { CFigure } from "./Figure/CFigure";
-import { CLayout } from "./layout";
+import { CLayout } from "./Clayout";
 
 export class CPainter {
     constructor() { }

@@ -45,7 +45,6 @@ export class CCanvas implements ICanvas {
         return new Promise((resolve, reject) => {
             try {
                 const buffer = this.m_canvas.toBuffer("image/png");
-                console.log("entered");
                 fs.writeFile(path, buffer).then(() => {
                     resolve("OK");
                 });

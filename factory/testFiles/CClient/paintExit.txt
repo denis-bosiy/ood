@@ -1,0 +1,3 @@
+paint
+stop
+exit

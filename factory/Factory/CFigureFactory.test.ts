@@ -10,7 +10,7 @@ describe("test factory", () => {
     const figureFactory: CFigureFactory = new CFigureFactory();
 
     test("createEllipse should return ellipse with passed parameters", () => {
-        const ellipse: CEllipse = figureFactory.createEllipse(new CPoint(1, 2), 3, 4, Color.Red);
+        const ellipse: CEllipse = figureFactory.createFigure(["ellipse", new CPoint(1, 2), 3, 4, Color.Red]) as CEllipse;
 
         expect(ellipse.centerPoint.x()).toBe(1);
         expect(ellipse.centerPoint.y()).toBe(2);
@@ -20,7 +20,7 @@ describe("test factory", () => {
     });
 
     test("createRectangle should return rectangle with passed parameters", () => {
-        const rectangle: CRectangle = figureFactory.createRectangle(new CPoint(1, 2), 3, 4, Color.Red);
+        const rectangle: CRectangle = figureFactory.createFigure(["rectangle", new CPoint(1, 2), 3, 4, Color.Red]) as CRectangle;
 
         expect(rectangle.leftTopPoint.x()).toBe(1);
         expect(rectangle.leftTopPoint.y()).toBe(2);
@@ -30,7 +30,7 @@ describe("test factory", () => {
     });
 
     test("createTriangle should return triangle with passed parameters", () => {
-        const triangle: CTriangle = figureFactory.createTriangle([new CPoint(1, 2), new CPoint(3, 4), new CPoint(5, 6)], Color.Red);
+        const triangle: CTriangle = figureFactory.createFigure(["triangle", [new CPoint(1, 2), new CPoint(3, 4), new CPoint(5, 6)], Color.Red]) as CTriangle;
 
         expect(triangle.points[0].x()).toBe(1);
         expect(triangle.points[0].y()).toBe(2);
@@ -42,7 +42,7 @@ describe("test factory", () => {
     });
 
     test("createCross should return cross with passed parameters", () => {
-        const cross: CCross = figureFactory.createCross(new CPoint(1, 2), 3, Color.Red);
+        const cross: CCross = figureFactory.createFigure(["cross", new CPoint(1, 2), 3, Color.Red]) as CCross;
 
         expect(cross.centerPoint.x()).toBe(1);
         expect(cross.centerPoint.y()).toBe(2);

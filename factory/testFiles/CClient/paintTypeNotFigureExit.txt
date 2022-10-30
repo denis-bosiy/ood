@@ -1,0 +1,4 @@
+paint
+string
+stop
+exit

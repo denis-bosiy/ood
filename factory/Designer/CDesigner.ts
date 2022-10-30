@@ -1,9 +1,9 @@
-import { readline } from "../libs";
-import { CLayout } from "../layout";
-import { CEllipseArgs, Parser, CRectangleArgs, CTriangleArgs, CCrossArgs } from "../parser";
+import { CLayout } from "../Clayout";
+import { CEllipseArgs, Parser, CRectangleArgs, CTriangleArgs, CCrossArgs } from "../Parser";
 import { IDesigner } from "./IDesigner";
 import { CFigure } from "../Figure/CFigure";
 import { IFigureFactory } from "../Factory/IFigureFactory";
+import LineByLineReader from "line-by-line";
 
 enum AvailableFigures {
     Ellipse = "ellipse",
@@ -21,19 +21,19 @@ export class CDesigner implements IDesigner {
         switch (args[0]) {
             case AvailableFigures.Ellipse:
                 const ellipseArgs: CEllipseArgs = Parser.parseEllipseArgs(args);
-                figure = this.m_figureFactory.createEllipse(ellipseArgs.centerPoint, ellipseArgs.largeSemiAxis, ellipseArgs.smallSemiAxis, ellipseArgs.color);
+                figure = this.m_figureFactory.createFigure([AvailableFigures.Ellipse, ellipseArgs.centerPoint, ellipseArgs.largeSemiAxis, ellipseArgs.smallSemiAxis, ellipseArgs.color]);
                 break;
             case AvailableFigures.Rectangle:
                 const rectangleArgs: CRectangleArgs = Parser.parseRectangleArgs(args);
-                figure = this.m_figureFactory.createRectangle(rectangleArgs.leftTopPoint, rectangleArgs.width, rectangleArgs.height, rectangleArgs.color);
+                figure = this.m_figureFactory.createFigure([AvailableFigures.Rectangle, rectangleArgs.leftTopPoint, rectangleArgs.width, rectangleArgs.height, rectangleArgs.color]);
                 break;
             case AvailableFigures.Triangle:
                 const triangleArgs: CTriangleArgs = Parser.parseTriangleArgs(args);
-                figure = this.m_figureFactory.createTriangle(triangleArgs.points, triangleArgs.color);
+                figure = this.m_figureFactory.createFigure([AvailableFigures.Triangle, triangleArgs.points, triangleArgs.color]);
                 break;
             case AvailableFigures.Cross:
                 const crossArgs: CCrossArgs = Parser.parseCrossArgs(args);
-                figure = this.m_figureFactory.createCross(crossArgs.centerPoint, crossArgs.length, crossArgs.color);
+                figure = this.m_figureFactory.createFigure([AvailableFigures.Cross, crossArgs.centerPoint, crossArgs.length, crossArgs.color]);
                 break;
             default:
                 throw new Error("Incorrect figure name");
@@ -45,15 +45,15 @@ export class CDesigner implements IDesigner {
         this.m_figureFactory = figureFactory;
     }
 
-    public async getLayout(stream: readline.Interface): Promise<CLayout> {
+    public getLayout(stream: LineByLineReader): Promise<CLayout> {
         return new Promise((resolve, reject) => {
             const layout: CLayout = new CLayout();
 
             const processStreamsFigures = (line: string) => {
                 if (line === "stop") {
-                    resolve(layout);
                     stream.off("line", processStreamsFigures);
                     console.log("Stopped painting");
+                    resolve(layout);
                     return;
                 }
                 try {
@@ -67,6 +67,8 @@ export class CDesigner implements IDesigner {
                 }
             }
             stream.on("line", processStreamsFigures);
+            stream.on("end", () => resolve(layout));
+            stream.on("error", (e) => reject(e));
         })
     }
 }
