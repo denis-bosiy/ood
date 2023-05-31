@@ -1,0 +1,3 @@
+insertparagraph 0 paragraphtext
+deleteitem 0
+exit

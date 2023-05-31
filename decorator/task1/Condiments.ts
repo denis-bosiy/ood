@@ -88,72 +88,60 @@ export class CIceCubes extends CCondimentDecorator {
 
 // Тип сиропа
 enum SyrupType {
-	Chocolate,	// Шоколадный
-	Maple	// Кленовый
+  Chocolate,	// Шоколадный
+  Maple	// Кленовый
 };
 
 // Добавка "Сироп"
-export class CSyrup extends CCondimentDecorator
-{
+export class CSyrup extends CCondimentDecorator {
   private m_syrupType: SyrupType;
 
-  protected getCondimentCost(): number
-  {
+  protected getCondimentCost(): number {
     return 15;
   }
 
-  protected getCondimentDescription(): string
-  {
+  protected getCondimentDescription(): string {
     return this.m_syrupType == SyrupType.Chocolate ? "Chocolate" : "Maple"
       + " syrup";
   }
 
-  constructor(beverage: IBeverage, syrupType: SyrupType)
-  {
+  constructor(beverage: IBeverage, syrupType: SyrupType) {
     super(beverage);
     this.m_syrupType = syrupType;
   }
 };
 
 // Шоколадная крошка
-export class CChocolateCrumbs extends CCondimentDecorator
-{
+export class CChocolateCrumbs extends CCondimentDecorator {
   private m_mass: number;
 
-  constructor(beverage: IBeverage, mass: number)
-  {
+  constructor(beverage: IBeverage, mass: number) {
     super(beverage);
     this.m_mass = mass;
   }
 
-	getCondimentCost(): number
-  {
+  getCondimentCost(): number {
     return 2.0 * this.m_mass;
   }
 
-  getCondimentDescription(): string
-  {
+  getCondimentDescription(): string {
     return "Chocolate crumbs " + this.m_mass + "g";
   }
 };
 
 // Кокосовая стружка
-export class CCoconutFlakes extends CCondimentDecorator
-{
+export class CCoconutFlakes extends CCondimentDecorator {
   private m_mass: number;
 
-  protected getCondimentCost(): number
-  {
+  protected getCondimentCost(): number {
     return 1.0 * this.m_mass;
   }
 
-  protected getCondimentDescription(): string
-  {
+  protected getCondimentDescription(): string {
     return "Coconut flakes " + this.m_mass + "g";
   }
 
-  constructor(beverage: IBeverage, mass: number)
-  {
+  constructor(beverage: IBeverage, mass: number) {
     super(beverage);
     this.m_mass = mass;
   }

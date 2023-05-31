@@ -60,6 +60,14 @@ export abstract class CObservable<T> implements IObservable<T>
   }
 
   public removeObserver(observer: IObserver<T>): void {
-    this.m_observersMap.forEach((observers: Set<IObserver<T>>) => observers.has(observer) ? observers.delete(observer) : {})
+    // TODO: Придумать, как не линейно пробегать по observersMap
+    this.m_observersMap.forEach((observers: Set<IObserver<T>>) => observers.delete(observer));
+    // TODO: m_sortedPriorities тоже удалять
+    const emptyPriorities: number[] = [];
+    this.m_observersMap.forEach((observers: Set<IObserver<T>>, priority: number) => observers.size === 0 ? emptyPriorities.push(priority) : null);
+    emptyPriorities.forEach((priority: number) => {
+      this.m_observersMap.delete(priority);
+    });
+    this.m_sortedPriorities = this.m_sortedPriorities.filter((priority: number) => !emptyPriorities.includes(priority));
   }
 };

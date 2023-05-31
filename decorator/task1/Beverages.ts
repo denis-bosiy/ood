@@ -26,20 +26,19 @@ export class CCoffee extends CBeverage {
   }
 };
 
-export enum CappuccinoType
-{
+export enum CappuccinoType {
   Standard,
   Double
 };
 
 // Капуччино
 export class CCappuccino extends CCoffee {
+  // TODO: CappuccinoType -> CappuccinoSize
   private m_type: CappuccinoType;
 
   constructor(type: CappuccinoType = CappuccinoType.Standard) {
     let description = "";
-    switch(type)
-    {
+    switch (type) {
       case CappuccinoType.Standard:
         description += "Standard";
         break;
@@ -55,8 +54,7 @@ export class CCappuccino extends CCoffee {
   }
 
   getCost(): number {
-    switch(this.m_type)
-    {
+    switch (this.m_type) {
       case CappuccinoType.Standard:
         return 80;
       case CappuccinoType.Double:
@@ -74,12 +72,12 @@ export enum LatteType {
 
 // Латте
 export class CLatte extends CCoffee {
+  // TODO: LatteType -> LatteSize
   private m_type: LatteType;
 
   constructor(type: LatteType = LatteType.Standard) {
     let description = "";
-    switch(type)
-    {
+    switch (type) {
       case LatteType.Standard:
         description += "Standard";
         break;
@@ -95,8 +93,7 @@ export class CLatte extends CCoffee {
   }
 
   getCost(): number {
-    switch(this.m_type)
-    {
+    switch (this.m_type) {
       case LatteType.Standard:
         return 90;
       case LatteType.Double:
@@ -121,8 +118,7 @@ export class CTea extends CBeverage {
 
   constructor(variety: TeaVariety = TeaVariety.Standard) {
     let description = "";
-    switch(variety)
-    {
+    switch (variety) {
       case TeaVariety.Standard:
         description += "Standard";
         break;
@@ -151,8 +147,7 @@ export class CTea extends CBeverage {
   }
 };
 
-export enum BeverageSize
-{
+export enum BeverageSize {
   Small,
   Medium,
   Big
@@ -164,8 +159,7 @@ export class CMilkshake extends CBeverage {
 
   constructor(size: BeverageSize = BeverageSize.Medium) {
     let description = "";
-    switch(size)
-    {
+    switch (size) {
       case BeverageSize.Small:
         description += "Small";
         break;
@@ -184,8 +178,7 @@ export class CMilkshake extends CBeverage {
   }
 
   getCost(): number {
-    switch(this.m_size)
-    {
+    switch (this.m_size) {
       case BeverageSize.Small:
         return 50;
       case BeverageSize.Medium:

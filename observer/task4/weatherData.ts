@@ -85,8 +85,8 @@ export class CStatsDisplay implements IObserver<IWeatherInfo>
   остается публичным
   */
 
-  public update(weatherDatType: WeatherDataType, data: IWeatherInfo): void {
-    console.log("Weather data type", weatherDatType);
+  public update(weatherDataType: WeatherDataType, data: IWeatherInfo): void {
+    console.log("Weather data type", weatherDataType);
     this.m_infoStats.updateStats(data);
     this.m_infoStats.showStats();
   }
@@ -100,14 +100,7 @@ export enum WeatherDataType
 
 export class CWeatherData extends CObservable<IWeatherInfo>
 {
-  private m_temperature: number = 0.0;
-  private m_humidity: number = 0.0;
-  private m_pressure: number = 760.0;
-
-  constructor(observableName?: string)
-  {
-    super(observableName);
-  }
+  private m_weatherInfo: IWeatherInfo = {} as IWeatherInfo;
 
   protected getChangedData(): IWeatherInfo {
     return { temperature: this.getTemperature(), humidity: this.getHumidity(), pressure: this.getPressure() };
@@ -115,17 +108,17 @@ export class CWeatherData extends CObservable<IWeatherInfo>
 
   // Температура в градусах Цельсия
   public getTemperature(): number {
-    return this.m_temperature;
+    return this.m_weatherInfo.temperature;
   }
 
   // Относительная влажность (0...100)
   public getHumidity(): number {
-    return this.m_humidity;
+    return this.m_weatherInfo.humidity;
   }
 
   // Атмосферное давление (в мм.рт.ст)
   public getPressure(): number {
-    return this.m_pressure;
+    return this.m_weatherInfo.pressure;
   }
 
   public measurementsChanged(): void {
@@ -133,9 +126,9 @@ export class CWeatherData extends CObservable<IWeatherInfo>
   }
 
   public setMeasurements(temp: number, humidity: number, pressure: number): void {
-    this.m_humidity = humidity;
-    this.m_temperature = temp;
-    this.m_pressure = pressure;
+    this.m_weatherInfo.humidity = humidity;
+    this.m_weatherInfo.temperature = temp;
+    this.m_weatherInfo.pressure = pressure;
 
     this.measurementsChanged();
   }

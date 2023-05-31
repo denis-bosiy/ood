@@ -65,6 +65,7 @@ export class CClient {
                 }
                 switch (line.toUpperCase()) {
                     case InputState.Paint:
+                        // TODO: Один раз создавать designer'a и painter'a
                         const designer: CDesigner = new CDesigner(new CFigureFactory());
                         const painter: CPainter = new CPainter();
                         isProcessingAnotherStream = true;

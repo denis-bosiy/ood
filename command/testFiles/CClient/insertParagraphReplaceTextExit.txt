@@ -1,0 +1,3 @@
+insertparagraph 0 paragraph text
+replacetext 0 another paragraph text
+exit

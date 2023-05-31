@@ -1,0 +1,6 @@
+begin_macro MacroInsert inserts paragraph and image
+InsertParagraph 0 paragraph text
+InsertImage end 300 400 image.png
+end_macro
+help
+exit

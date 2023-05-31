@@ -1,0 +1,53 @@
+.shapes-list {
+    display: flex;
+    padding: 3px 6px;
+    margin: 0;
+    column-gap: 6px;
+    
+    list-style-type: none;
+    border: 1px solid black;
+}
+
+.shapes-list__item {
+    padding: 3px 6px;
+
+    background: blue;
+    color: white;
+    cursor: pointer;
+}
+
+.shapes-list__item:hover,
+.shapes-list__item:focus {
+    background: #0101ba;
+}
+
+.shapes-list__item:active {
+    background: #6969fa;
+}
+
+.nav {
+    padding: 3px 6px;
+    border: 1px solid black;
+}
+
+#canvas {
+    margin: 12px;
+
+    border: 1px solid black;
+}
+
+.shape {
+    cursor: pointer;
+}
+
+.resizer {
+    cursor: se-resize;
+}
+
+.-active {
+    cursor: grab;
+}
+
+.-active:active {
+    cursor: grabbing;
+}

@@ -14,7 +14,6 @@ function ask(question: string): Promise<string> {
   });
 }
 
-
 async function dialogWithUser(): Promise<void> {
   let beverage: IBeverage | null = null;
   let answer: string = "";

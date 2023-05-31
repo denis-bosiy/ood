@@ -17,7 +17,6 @@ const DEFAULT_BLOCK_SIZE: number = 4;
 const cliArgs: string[] = process.argv.slice(2);
 
 export function run(args: string[]) {
-    console.log(args);
     try {
         if (args.length < 2) {
             throw new Error("Invalid arguments count, count should be greater than 1");

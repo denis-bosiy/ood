@@ -20,6 +20,7 @@ describe("test client", () => {
 
         await client.startProcessingStream();
 
+        // TODO: Вынести экспекты 0 - 14 в отдельную функцию
         expect((console.log as jest.Mock).mock.calls[0][0]).toBe("-----------------------------");
         expect((console.log as jest.Mock).mock.calls[1][0]).toBe("Available commands:");
         expect((console.log as jest.Mock).mock.calls[2][0]).toBe("paint - to paint picture");

@@ -4,6 +4,7 @@ import { run } from "./solution";
 describe("bdd testing", () => {
     test("compress scenario", (done: any) => {
         run(["--compress", "decorator/task3/testFiles/compress/in.txt", "decorator/task3/testFiles/compress/out.txt"]);
+
         promises.readFile("decorator/task3/testFiles/compress/out.txt", 'ascii').then((data: string) => {
             expect(data).toEqual('helo');
             done();

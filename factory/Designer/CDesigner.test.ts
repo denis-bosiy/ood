@@ -8,7 +8,7 @@ describe("test designer", () => {
     beforeEach(() => {
       console.log = jest.fn();
     });
-  
+
     afterAll(() => {
       console.log = log;
     });

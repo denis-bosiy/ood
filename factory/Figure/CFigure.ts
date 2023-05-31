@@ -1,6 +1,7 @@
 import { ICanvas } from "../Canvas/ICanvas";
 import { IDrawableFigure } from "./IDrawableFigure";
 
+// TODO: выделить в отдельный файл Color
 export enum Color {
     Red,
     Green,
@@ -30,6 +31,7 @@ export const getColorString = (color: Color): string => {
 }
 
 export abstract class CFigure implements IDrawableFigure {
+    // TODO: protected -> private
     protected m_color: Color;
 
     constructor(color: Color) {

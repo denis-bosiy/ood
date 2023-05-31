@@ -2,6 +2,7 @@ import { Color } from "./Figure/CFigure";
 import { CPoint } from "./Figure/CPoint";
 
 export class Parser {
+    // TODO: Вынести всё в одно место(цвета)
     static AVAILABLE_COLORS: string[] = ["red", "green", "blue", "pink", "yellow", "black"];
 
     static parseEllipseArgs(args: string[]): CEllipseArgs {

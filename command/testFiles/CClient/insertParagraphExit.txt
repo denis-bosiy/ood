@@ -1,0 +1,2 @@
+InsertParagraph 0 some text paragraph
+exit

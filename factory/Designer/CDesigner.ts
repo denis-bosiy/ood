@@ -18,6 +18,7 @@ export class CDesigner implements IDesigner {
     private recogniseFigure(args: string[]): CFigure | null {
         let figure: CFigure | null = null;
 
+        // TODO: убрать свичи
         switch (args[0]) {
             case AvailableFigures.Ellipse:
                 const ellipseArgs: CEllipseArgs = Parser.parseEllipseArgs(args);

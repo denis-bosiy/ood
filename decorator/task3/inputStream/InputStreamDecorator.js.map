@@ -1,0 +1,1 @@
+{"version":3,"file":"InputStreamDecorator.js","sourceRoot":"","sources":["InputStreamDecorator.ts"],"names":[],"mappings":";;;AAEA;IAGI,8BAAY,WAAyB;QACjC,IAAI,CAAC,aAAa,GAAG,WAAW,CAAC;IACrC,CAAC;IAEM,oCAAK,GAAZ;QACI,OAAO,IAAI,CAAC,aAAa,CAAC,KAAK,EAAE,CAAC;IACtC,CAAC;IAKL,2BAAC;AAAD,CAAC,AAdD,IAcC;AAdqB,oDAAoB"}

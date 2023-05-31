@@ -1,0 +1,2 @@
+InsertImage 0 300 400 path.png
+exit
